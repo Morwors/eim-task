@@ -10,8 +10,6 @@ namespace eim_task.Server.Data
             : base(options)
         {
         }
-
-        // Define DbSets for each entity
         public DbSet<JSTask> JSTasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

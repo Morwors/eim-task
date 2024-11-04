@@ -33,7 +33,7 @@ namespace eim_task.Server.Repositories.Implementations
             task.CreatedAt = DateTime.UtcNow;
             await _context.JSTasks.AddAsync(task);
             await _context.SaveChangesAsync();
-            return task; // Return the created task
+            return task;
         }
 
         public async Task<bool> UpdateJSTaskAsync(JSTask task)
@@ -41,17 +41,15 @@ namespace eim_task.Server.Repositories.Implementations
             var existingTask = await _context.JSTasks.FindAsync(task.Id);
             if (existingTask == null)
             {
-                return false; // Task not found
+                return false;
             }
 
-            // Update properties
             existingTask.Title = task.Title;
             existingTask.Description = task.Description;
-            // Any additional properties can be updated here
 
             _context.JSTasks.Update(existingTask);
             await _context.SaveChangesAsync();
-            return true; // Return true if update succeeds
+            return true; 
         }
 
         public async Task<bool> DeleteJSTaskAsync(int id)
@@ -59,12 +57,12 @@ namespace eim_task.Server.Repositories.Implementations
             var task = await _context.JSTasks.FindAsync(id);
             if (task == null)
             {
-                return false; // Task not found
+                return false; 
             }
 
             _context.JSTasks.Remove(task);
             await _context.SaveChangesAsync();
-            return true; // Return true if deletion succeeds
+            return true;
         }
     }
 }

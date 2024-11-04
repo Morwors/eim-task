@@ -37,17 +37,15 @@ namespace YourProject.Services
 
         public async Task<bool> UpdateJSTaskAsync(JSTask task)
         {
-            // Additional business logic could go here (e.g., validation, additional checks)
-
             var existingTask = await _taskRepository.GetJSTaskByIdAsync(task.Id);
             if (existingTask == null)
             {
-                return false; // Task not found
+                return false;
             }
 
             existingTask.Title = task.Title;
             existingTask.Description = task.Description;
-            // You can also update other properties here if needed
+           
 
             return await _taskRepository.UpdateJSTaskAsync(existingTask);
         }
@@ -57,7 +55,7 @@ namespace YourProject.Services
             var task = await _taskRepository.GetJSTaskByIdAsync(id);
             if (task == null)
             {
-                return false; // Task not found
+                return false;
             }
 
             return await _taskRepository.DeleteJSTaskAsync(id);

@@ -17,7 +17,6 @@ namespace eim_task.Server.Repositories.Implementations
                     return new List<JSTask>();
 
                 var jsonData = File.ReadAllText(_filePath);
-                //find all JSTask where filter similar to title
                 if (!string.IsNullOrEmpty(filter))
                 {
 

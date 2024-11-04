@@ -8,7 +8,6 @@ using YourProject.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 var dbType = builder.Configuration["DatabaseSettings:Type"];
 
 if (dbType == "SQL")
