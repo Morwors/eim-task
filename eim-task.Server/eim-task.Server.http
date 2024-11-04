@@ -1,0 +1,6 @@
+@eim_task.Server_HostAddress = http://localhost:5046
+
+GET {{eim_task.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
